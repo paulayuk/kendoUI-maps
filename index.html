@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+    <html>
+       <head>
+        <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.common.min.css">
+        <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.rtl.min.css">
+        <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.default.min.css">
+        <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.mobile.all.min.css">      
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+        </script>
+        <script src="https://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js">
+  	
+        </script>
+        
+         <title>Maps</title>
+       
+       </head>
+ 
+	<body>
+	  <div id="example">    
+      <div id="map"></div>
+    
+              <script>
+                function createMap() {
+                    $("#map").kendoMap({
+                        center: [30.268107, -97.744821],
+                        zoom: 3,
+                        layers: [{
+                            type: "tile",
+                            urlTemplate: "http://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png",
+                            subdomains: ["a", "b", "c"],
+                            attribution: "&copy; <a href='http://osm.org/copyright'>OpenStreetMap contributors</a>"
+                        }],
+                        markers: [{
+                            location: [30.268107, -97.744821],
+                            shape: "pinTarget",
+                            tooltip: {
+                                content: "Austin, TX"
+                            }
+                        }]
+                    });
+                  }
+                $(document).ready(createMap);
+            </script>
+    
+     </div>   
+	</body> 
+</html>
